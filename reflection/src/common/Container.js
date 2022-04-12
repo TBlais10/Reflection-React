@@ -1,5 +1,4 @@
-import React, {CSSProperties} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 const Container = (props) => {
   return (
