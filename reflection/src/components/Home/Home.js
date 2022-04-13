@@ -8,13 +8,17 @@ const Home = () => {
             <Container>
                 <Splash
                     image={splashImg} style={{
-                        color:"#1f1f1f"
+                        color:"#716391"
                     }}>
-                </Splash>
                 <h1 style={{
                     textShadow: '1 px 1px black'
                 }}>Welcome to Reflection</h1>
-                <h2>Share your thoughts, share with others</h2>
+                <h2 style={{
+                    textShadow: '1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000',
+                }}>
+                Share your thoughts, share with others
+                </h2>
+                </Splash>
             </Container>
     )
 }
