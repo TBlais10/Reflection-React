@@ -1,8 +1,10 @@
 import React, {useState} from "react";
+import axios from 'axios';
 import NewUserForm from "./NewUserForm";
 import Container from "../../common/Container";
 import Splash from "../../common/Splash";
 import RegSplash from "../../assets/login_reflect.jpg"
+import { apiHostUrl } from "../../config";
 
 const Register =() => {
     const [newUser, setNewUser] = useState({
@@ -22,11 +24,29 @@ const Register =() => {
         })
     }
 
+    const createUser = (data) =>{
+        try {
+            const res = await axios.post(`${apiHostUrl}/auth/signup`, data);
+        console.log(res.data)
+        } catch (err) {
+        console.error(err.message);
+        }
+    }
+
+    const login = (data) =>{
+
+    }
+
+    const createProfile = (data) =>{
+
+    }
+
     const onSubmit = () => {
         const data = newUser;
         data.name = `${data.fName} ${data.lName}`
+        data.username = data.email
 
-        
+        createUser(data);
     };
 
     return(
