@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from 'axios';
+import {Navigate, useNavigate} from 'react-router-dom'
 import NewUserForm from "./NewUserForm";
 import Container from "../../common/Container";
 import Splash from "../../common/Splash";
@@ -17,6 +18,8 @@ const Register =() => {
         state: '',
     })
 
+    const navigate = useNavigate();
+
     const updateForm = (field, value) => {
         setNewUser({
             ...newUser,
@@ -24,21 +27,43 @@ const Register =() => {
         })
     }
 
-    const createUser = (data) =>{
+    const createUser = async(data) =>{
         try {
-            const res = await axios.post(`${apiHostUrl}/auth/signup`, data);
-        console.log(res.data)
+            const res = await axios.post(`${apiHostUrl}/api/auth/signup`, data);
+            console.log(res.data)
+            login(data);
         } catch (err) {
-        console.error(err.message);
+            console.error(err.message);
         }
     }
-
-    const login = (data) =>{
+    
+    const login = async (data) =>{
+        try{
+            const res = await axios.post(`${apiHostUrl}/api/auth/signin`, data);
+            console.log(res.data);
+            createProfile(data, res.data.token);
+        } catch (err) {
+            console.error(err.response.data)
+        }
 
     }
 
-    const createProfile = (data) =>{
-
+    const createProfile = async (data, token) =>{
+        try{
+            const res = await axios.post(
+                `${apiHostUrl}/api/profile/`, 
+                data, 
+                {
+                    headers: {
+                        "Authorization": `Bearer ${token}}`
+                    }
+                }
+            );
+            console.log(res.data);
+            navigate('/login');
+        } catch(err) {
+            console.error(err.response.data)
+        }
     }
 
     const onSubmit = () => {
