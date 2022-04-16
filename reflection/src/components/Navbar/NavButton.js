@@ -16,12 +16,13 @@ const NavButton = (props) => {
             textShadow: '1px 1px #f1f1f1',
             textAlign: 'center',
             whiteSpace: 'nowrap',
-            margin: '0 10px'
+            margin: '0 10px',
+            opacity: hover ? "60%" : "100%"
         }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            {props.label} {hover ? "hi" : ""}
+            {props.label}
         </NavLink>
     )
 }
