@@ -37,7 +37,10 @@ const Navbar = (props) => {
           }}>
           <NavButton to="/" label="Home" />
           {auth.token ? (
-            <NavButton to="/reflect" lable="Reflect" />
+            <Fragment>
+              <NavButton to="/reflect" label="Reflect" />,
+              <NavButton to="/profiles" label="Profiles" />
+            </Fragment>
             ) : (
               <Fragment>
                 <NavButton to="/login" label="Login" />
