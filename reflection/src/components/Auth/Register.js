@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from 'axios';
-import {Navigate, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import NewUserForm from "./NewUserForm";
 import Container from "../../common/Container";
 import Splash from "../../common/Splash";
@@ -11,8 +11,8 @@ const Register =() => {
     const [newUser, setNewUser] = useState({
         email:'',
         password:'',
-        fName: '',
-        lName: '',
+        fname: '',
+        lname: '',
         age: '',
         town: '',
         state: '',
@@ -28,6 +28,7 @@ const Register =() => {
     }
 
     const createUser = async(data) =>{
+        console.log(data)
         try {
             const res = await axios.post(`${apiHostUrl}/api/auth/signup`, data);
             console.log(res.data)
@@ -49,13 +50,15 @@ const Register =() => {
     }
 
     const createProfile = async (data, token) =>{
+        console.log(data)
+        // console.log(token);
         try{
             const res = await axios.post(
                 `${apiHostUrl}/api/profile/`, 
                 data, 
                 {
                     headers: {
-                        "Authorization": `Bearer ${token}}`
+                        Authorization: `Bearer ${token}`
                     }
                 }
             );
@@ -66,9 +69,9 @@ const Register =() => {
         }
     }
 
-    const onSubmit = () => {
+    const onSubmit = () => { //issue here -> Developer is being made but not a Profile connected to the User.
         const data = newUser;
-        data.name = `${data.fName} ${data.lName}`
+        data.name = `${data.fname} ${data.lname}`
         data.username = data.email
 
         createUser(data);

@@ -16,18 +16,19 @@ const Profiles = (props) => {
         const _getDevelopers = async () => {
             try{
                 const res = await axios.get(
-                    `${host}/api/profie`,
+                    `${host}/api/profile`,
                     {
                         headers : {
-                            "Authorization" : `Bearer ${auth.token}`
+                            Authorization : `Bearer ${auth.token}`
                         }
                     }
                 )
-                console.log(res.data)
-                setLoading(false);
+                console.log(res.data);
+                // setAuth({...auth, name: res.data.name}) //Check out geekylikes
                 setProfiles(res.data);
+                setLoading(false);
             } catch (err){
-                console.log(err.response.message)
+                console.log(err.message ? err.message : err.response)
             }
 
         }
@@ -40,7 +41,7 @@ const Profiles = (props) => {
     }
 
     const onSelect = (proId) => {
-        navigate(`/developers/${proId}`)
+        navigate(`/profile/${proId}`)
     }
 
     return(
@@ -53,9 +54,9 @@ const Profiles = (props) => {
         }}>
             <h1>Profiles</h1>
             {loading ?
-                <Spinner />
-            :
-            displayProfiles()
+                "Loading..."
+            : 
+                displayProfiles()
             }
         </div>
 

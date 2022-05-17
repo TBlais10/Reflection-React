@@ -4,10 +4,8 @@ import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
 import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
-import Reflect from "../components/Reflect/Reflect";
 import Profiles from "../Profile/Profiles";
-// import JournalEntries from "../JournalEntries/journalEntries";
-
+import JournalEntry from "../components/JournalEntry/JournalEntry";
 const AppRouter = () => {
     return (
         <div style = {{
@@ -19,9 +17,8 @@ const AppRouter = () => {
             <Route path="/" element = {<Home />} />
             <Route path="/signup" element = {<Register />} />
             <Route path="/login" element = {<Login />}  />
-            <Route path="/reflect" element = {<Reflect />} />
             <Route path="/profiles" element = {<Profiles />} />
-            {/* <Route path="/JournalEntries" element = {<JournalEntries />} /> */}
+            <Route path="/Entries" element = {<JournalEntry />} />
         </Routes>
 
         </div>

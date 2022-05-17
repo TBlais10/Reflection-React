@@ -30,7 +30,6 @@ const Login = (props) => {
   }
 
   const login = async (data) => {
-    console.log(`${apiHostUrl}`)
     try {
       const res = await axios.post(`${apiHostUrl}/api/auth/signin`, data);
       setAuth({
