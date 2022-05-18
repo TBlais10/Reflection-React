@@ -37,6 +37,7 @@ const Profiles = (props) => {
     }, [auth.token])
 
     const displayProfiles = () => {
+        // console.log(profiles)
         return profiles.map(pro => <Profile profile={pro} key={pro.id} onSelect={onSelect}/>)
     }
 

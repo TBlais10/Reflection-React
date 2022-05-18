@@ -2,11 +2,12 @@ import React from "react";
 import BorderCard from "../common/BorderCard"
 
 const Profile = (props) => {
-    const {name, id} = props.profile
+    const {fname, lname, id, journalEntries} = props.profile
+    console.log(props.profile)
     return(
         <BorderCard onClick={() => props.onSelect(id)}>
-            <h2>{name}</h2>
-            <p>{id}</p>
+            <h2>{fname} {lname}</h2>
+            <h1>{journalEntries}</h1>
         </BorderCard>
     )
 }
