@@ -38,7 +38,7 @@ const Navbar = (props) => {
           <NavButton to="/" label="Home" />
           {auth.token ? (
             <Fragment>
-              <NavButton to="/Entries" label="Journal Entries" />,
+              <NavButton to="/newEntry" label="Make an Entry" />,
               <NavButton to="/profiles" label="Profiles" />
             </Fragment>
             ) : (

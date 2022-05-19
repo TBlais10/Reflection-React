@@ -18,7 +18,7 @@ const AppRouter = () => {
             <Route path="/signup" element = {<Register />} />
             <Route path="/login" element = {<Login />}  />
             <Route path="/profiles" element = {<Profiles />} />
-            <Route path="/Entries" element = {<JournalEntry />} />
+            <Route path="/newEntry" element = {<JournalEntry />} />
         </Routes>
 
         </div>

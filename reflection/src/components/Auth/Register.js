@@ -69,7 +69,7 @@ const Register =() => {
         }
     }
 
-    const onSubmit = () => { //issue here -> Developer is being made but not a Profile connected to the User.
+    const onSubmit = () => {
         const data = newUser;
         data.name = `${data.fname} ${data.lname}`
         data.username = data.email
