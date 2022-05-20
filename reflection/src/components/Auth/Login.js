@@ -1,17 +1,17 @@
-import React, { useState, useContext} from "react";
-import {useNavigate} from 'react-router-dom'
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoginForm from "./LoginForm";
 import Container from "../../common/Container";
-import Splash from '../../common/Splash'
-import RegSplash from '../../assets/login_reflect.jpg'
+import Splash from "../../common/Splash";
+import RegSplash from "../../assets/login_reflect.jpg";
 import { apiHostUrl } from "../../config";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = (props) => {
   const [newLogin, setNewLogin] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const [auth, setAuth] = useContext(AuthContext);
@@ -20,14 +20,14 @@ const Login = (props) => {
   const updateForm = (field, value) => {
     setNewLogin({
       ...newLogin,
-      [field]: value
-    })
-  }
+      [field]: value,
+    });
+  };
 
   const onSubmit = () => {
     const data = newLogin;
     login(data);
-  }
+  };
 
   const login = async (data) => {
     try {
@@ -41,23 +41,26 @@ const Login = (props) => {
     } catch (err) {
       console.error(err.response ? err.response.data : err.message);
     }
-  }
+  };
 
   return (
     <Container>
-      <Splash image={RegSplash} style={{
-        height: '20vh',
-        color: '#F1F1F1'
-      }}>
+      <Splash
+        image={RegSplash}
+        style={{
+          height: "20vh",
+          color: "#F1F1F1",
+        }}
+      >
         <h1>Login</h1>
       </Splash>
-      <LoginForm 
+      <LoginForm
         newLogin={newLogin}
         onChange={updateForm}
         onSubmit={onSubmit}
       />
     </Container>
-  )
-}
+  );
+};
 
 export default Login;

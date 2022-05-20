@@ -1,13 +1,12 @@
 import React, {useContext, useEffect, useState} from "react";
-import { AuthContext } from "../Providers/AuthProvider";
-import Spinner from '../faCommon/Spinner'
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import Profile from "./Profile";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Profiles = (props) => {
-    const [auth] = useContext(AuthContext);
-    const[profiles, setProfiles] = useState([]);
+    const [auth, setAuth] = useContext(AuthContext);
+    const [profiles, setProfiles] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
@@ -15,14 +14,14 @@ const Profiles = (props) => {
         const host = process.env.REACT_APP_API_HOST || "http://localhost:8080";
         const _getDevelopers = async () => {
             try{
-                const res = await axios.get(
-                    `${host}/api/profile`,
+                const res = await axios.get(`${host}/api/profile`, 
                     {
-                        headers : {
-                            Authorization : `Bearer ${auth.token}`
+                        headers: {
+                        "Authorization": `Bearer ${auth.token}`
                         }
                     }
-                )
+                );
+                
                 console.log(res.data);
                 // setAuth({...auth, name: res.data.name}) //Check out geekylikes
                 setProfiles(res.data);

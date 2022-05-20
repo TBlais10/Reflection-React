@@ -14,6 +14,7 @@ const Register =() => {
         fname: '',
         lname: '',
         age: '',
+        gender: '',
         town: '',
         state: '',
     })

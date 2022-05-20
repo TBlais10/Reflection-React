@@ -2,6 +2,9 @@ import React, { Fragment } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import NavButton from "./NavButton";
+              //add button to look at posts
+              //add button to look at profiles
+              //add a log out button
 
 const Navbar = (props) => {
   const [auth] = useContext(AuthContext);
@@ -36,10 +39,10 @@ const Navbar = (props) => {
             alignItems: "center",
           }}>
           <NavButton to="/" label="Home" />
+          <NavButton to="/profiles" label="Profiles" />
           {auth.token ? (
             <Fragment>
-              <NavButton to="/newEntry" label="Make an Entry" />,
-              <NavButton to="/profiles" label="Profiles" />
+              <NavButton to="/newEntry" label="Make an Entry" />
             </Fragment>
             ) : (
               <Fragment>

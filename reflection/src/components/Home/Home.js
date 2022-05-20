@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import Container from "../../common/Container";
 import Splash from "../../common/Splash";
 import splashImg from "../../assets/splash_reflect.jpg"
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Home = () => {
+    const [auth] = useContext(AuthContext);
+
     return(
             <Container>
                 <Splash

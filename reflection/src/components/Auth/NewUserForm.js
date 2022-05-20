@@ -64,6 +64,14 @@ const NewUserForm = ({onSubmit, onChange, newUser}) => {
                     type="number"
                     required
                     />
+                    <Input 
+                    name="gender"
+                    id="gender"
+                    value={newUser.gender}
+                    placeholder={"Gender"}
+                    onChange={handleChange}
+                    required
+                    />
                 </InlineInputContainer>
                 <InlineInputContainer>
                     <Input 

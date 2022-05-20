@@ -7,7 +7,7 @@ const Profile = (props) => {
     return(
         <BorderCard onClick={() => props.onSelect(id)}>
             <h2>{fname} {lname}</h2>
-            <h1>{journalEntries}</h1>
+            {/* <h1>{journalEntries}</h1> */}
         </BorderCard>
     )
 }
