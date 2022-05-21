@@ -6,6 +6,8 @@ import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
 import Profiles from "../Profile/Profiles";
 import JournalEntry from "../components/JournalEntry/JournalEntry";
+import Account from "../Account/Account";
+
 const AppRouter = () => {
     return (
         <div style = {{
@@ -17,8 +19,9 @@ const AppRouter = () => {
             <Route path="/" element = {<Home />} />
             <Route path="/signup" element = {<Register />} />
             <Route path="/login" element = {<Login />}  />
-            <Route path="/profiles" element = {<Profiles />} />
             <Route path="/newEntry" element = {<JournalEntry />} />
+            <Route path="/profiles" element = {<Profiles />} />
+            <Route path="/profiles/:proId" element = {<Account /> } />
         </Routes>
 
         </div>
