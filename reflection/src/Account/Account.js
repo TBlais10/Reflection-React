@@ -4,10 +4,7 @@ import {useParams} from 'react-router-dom';
 import { AuthContext } from "../Providers/AuthProvider";
 import Image from "../assets/account_reflect.jpg"
 import Button from "../common/Button";
-import { useState } from "react";
-import { useContext } from "react";
-import { useEffect } from "react";
-import { Fragment } from "react";
+
 
 const Account = (props) => {
     const params = useParams();

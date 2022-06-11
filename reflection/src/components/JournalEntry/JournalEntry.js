@@ -16,7 +16,7 @@ const JournalEntry = (props) => {
     title: "",
     content: "",
   });
-
+  const [loading, setLoading] = useState(true);
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
 

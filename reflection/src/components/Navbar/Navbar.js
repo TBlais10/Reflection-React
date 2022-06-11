@@ -40,6 +40,7 @@ const Navbar = (props) => {
           }}>
           <NavButton to="/" label="Home" />
           <NavButton to="/profiles" label="Profiles" />
+          <NavButton to="/viewEntries" label="Entires" />
           {auth.token ? (
             <Fragment>
               <NavButton to="/newEntry" label="Make an Entry" />
