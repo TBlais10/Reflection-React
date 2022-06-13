@@ -38,7 +38,7 @@ const ViewEntry = (props) => {
     }, [auth.token])
 
     const displayEntries = () => {
-        return journalEntries.map(ent => <ViewEntries ViewEntries={ent} key={ent.id} onSelect={onSelect}/>) //todo: research
+        return journalEntries.map(ent => <ViewEntries journalEntry={ent} key={ent.id} onSelect={onSelect}/>) //todo: research
     }
 
     const onSelect = (entId) => {

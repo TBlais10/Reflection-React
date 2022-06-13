@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Profiles from "../Profile/Profiles";
 import JournalEntry from "../components/JournalEntry/JournalEntry";
 import Account from "../Account/Account";
-import ViewEntries from "../components/JournalEntry/ViewEntries";
+import ViewEntry from "../components/JournalEntry/ViewEntry";
 
 const AppRouter = () => {
   return (
@@ -23,7 +23,7 @@ const AppRouter = () => {
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/newEntry" element={<JournalEntry />} />
-        <Route path="/viewEntries" element={<ViewEntries />} />
+        <Route path="/viewEntries" element={<ViewEntry />} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/profiles/:proId" element={<Account />} />
       </Routes>
